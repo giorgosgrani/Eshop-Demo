@@ -15,11 +15,7 @@ products.forEach((product)=>{
           </div>
 
           <div class="product-rating-container">
-            <img class="product-rating-stars"
-              src="images/ratings/rating-${product.rating.stars*10}.png">
-            <div class="product-rating-count link-primary">
-              ${product.rating.count}
-            </div>
+            <span>Βαθμολογία:${product.rating.stars}/5 (${product.rating.count})</span>
           </div>
 
           <div class="product-price">
@@ -55,4 +51,5 @@ products.forEach((product)=>{
   `;
 });
 
-document.querySelector('.product-grid').innerHTML= productsHTML;
+document.querySelector('.products-grid').innerHTML= productsHTML;
+console.log(products);

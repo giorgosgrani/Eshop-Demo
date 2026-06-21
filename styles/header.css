@@ -30,10 +30,7 @@
   gap: 8px;
 }
 
-body {
-  margin: 0;
-  border-radius: 2px;
-}
+
 
 .main-nav{
   display: flex;
@@ -82,4 +79,143 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .main-nav {
+    gap: 4px;
+    margin-right:10%;
+  }
+
+  .main-nav .nav1 {
+    display:none;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    min-height: 64px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .menu-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
+
+  .main-nav {
+    gap: 2px;
+  }
+
+  .main-nav a {
+    padding: 7px 8px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 575px) {
+  .site-header {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .logo {
+    width: 90px;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 2px;
+  }
+
+  .main-nav a {
+    font-size: 10px;
+    padding: 6px 4px;
+  }
+  .search-bar,.search-button{
+    display:none;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-header {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .logo {
+    width: 78px;
+  }
+
+  .left-section-header {
+    gap: 4px;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 1px;
+  }
+
+  .main-nav a {
+    font-size: 9px;
+    padding: 5px 3px;
+  }
+
+  .cart-badge {
+    font-size: 9px;
+  }
+
+}
+.search-box{
+  flex: 1;
+  max-width: 850px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+}
+
+.search-bar{
+ 
+  flex: 1;
+  width: 0;
+  font-size: 16px;
+  height: 38px;
+  padding-left: 15px;
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0
+}
+.search-button{
+ background-color: white;
+  border: none;
+  width: 45px;
+  height: 38px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  flex-shrink: 0;
+
+}
+
+
+.search-icon{
+  height: 38px;
+  padding-bottom: 1px;
+  cursor: pointer;
 }

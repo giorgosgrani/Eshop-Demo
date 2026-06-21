@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/header.css">
+  <link rel="stylesheet" href="../styles/index.css">
   <title>Index</title>
 </head>
 <body>
@@ -14,16 +15,20 @@
         
       </a>
       <button class="menu-toggle" id="menuToggle" aria-label="Άνοιγμα μενού" aria-expanded="false">☰</button></div>
-      
+      <div class ="search-box">
+        <input class="search-bar" type="text" placeholder ="Αναζήτηση" >
+        <button onclick="console.log('hello');" class="search-button"><img class="search-icon" src="../images/search-button.png" ></button>
+      </div>
+
       <nav class="main-nav" id="mainNav" aria-label="Κύριο μενού">
-        <a href="#home">Αρχική</a>
-        <a href="#products">Προϊόντα</a>
-        <a href="#categories">Κατηγορίες</a>
+        <a class= "nav1" href="#home">Αρχική</a>
+        <a class= "nav1" href="#products">Προϊόντα</a>
+        <a class= "nav1" href="#categories">Κατηγορίες</a>
         <a href="#cart">Καλάθι <span id="cartBadge" class="cart-badge">0</span></a>
       </nav>
     </header>
 
-    <div class="product-grid">
+    <div class="products-grid">
 
     </div>
 
