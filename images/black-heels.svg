@@ -1,0 +1,15 @@
+﻿<svg width="640" height="480" viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="480" rx="36" fill="#f8fafc"/>
+  <circle cx="510" cy="96" r="58" fill="#facc15" opacity="0.18"/>
+  <circle cx="128" cy="360" r="74" fill="#111827" opacity="0.14"/>
+  <path d="M130 290C178 286 218 262 254 216C270 196 298 194 315 213L352 254C364 267 382 274 400 273L472 269C503 267 530 290 534 321L538 351C541 374 523 394 500 394H155C129 394 108 373 108 347V319C108 304 116 292 130 290Z" fill="#111827"/>
+  <path d="M114 342H538V365C538 381 525 394 509 394H142C126 394 114 381 114 365V342Z" fill="#4b5563"/>
+  <path d="M255 218L211 279" stroke="#ffffff" stroke-width="12" stroke-linecap="round" opacity="0.9"/>
+  <path d="M298 226L252 283" stroke="#ffffff" stroke-width="12" stroke-linecap="round" opacity="0.9"/>
+  <path d="M342 263C384 284 438 285 492 274" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity="0.55"/>
+  <circle cx="184" cy="370" r="12" fill="#ffffff" opacity="0.75"/>
+  <circle cx="462" cy="370" r="12" fill="#ffffff" opacity="0.75"/>
+  <rect x="64" y="48" width="104" height="34" rx="17" fill="#4b5563" opacity="0.92"/>
+  <text x="116" y="70" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#ffffff">DEMO</text>
+  <text x="320" y="438" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#111827">Γόβες Μαύρες Classic</text>
+</svg>
