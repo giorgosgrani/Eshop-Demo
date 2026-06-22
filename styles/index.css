@@ -76,6 +76,7 @@ body {
 
   display: flex;
   flex-direction: column;
+  gap:5px;
 }
 
 .product-image-container {
@@ -96,3 +97,22 @@ body {
   max-height: 100%;
 }
 
+.added-icon {
+  width: 90px;
+  height: auto;
+  margin-right:0px;
+  
+}
+
+.added-to-cart-inactive{
+  display: none;
+}
+
+.added-to-cart-active{
+  display:block;
+}
+
+.product-quantity-container{
+  display:flex;
+  gap: 10px;
+}

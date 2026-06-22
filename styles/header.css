@@ -147,12 +147,10 @@ a {
     font-size: 10px;
     padding: 6px 4px;
   }
-  .search-bar,.search-button{
-    display:none;
-  }
+  
 }
 
-@media (max-width: 420px) {
+@media (max-width: 350px) {
   .site-header {
     padding-left: 6px;
     padding-right: 6px;
@@ -180,6 +178,9 @@ a {
     font-size: 9px;
   }
 
+  .search-bar,.search-button{
+    display:none;
+  }
 }
 .search-box{
   flex: 1;

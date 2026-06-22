@@ -1,0 +1,7 @@
+<svg width="260" height="72" viewBox="0 0 260 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Added to cart</title>
+  <rect x="2" y="2" width="256" height="68" rx="34" fill="#E8F8EE" stroke="#22C55E" stroke-width="4"/>
+  <circle cx="38" cy="36" r="18" fill="#22C55E"/>
+  <path d="M29 36.5L35 42.5L48 29.5" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="68" y="43" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#15803D">Added to cart</text>
+</svg>
