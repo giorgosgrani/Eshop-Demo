@@ -116,3 +116,25 @@ body {
   display:flex;
   gap: 10px;
 }
+
+.pagination{
+  display: flex;
+  width:max-width;
+  justify-content: center;
+  align-items: center;
+  height:50px;
+  gap:10px;
+}
+
+.pagination-button{
+   width: 36px;
+  height: 36px;
+  border: 1px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+}
+
+.pagination-button.active {
+  background: #111827;
+  color: white;
+}

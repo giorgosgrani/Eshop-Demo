@@ -1,9 +1,16 @@
 import { products, cart } from "../data/products.js";
+let currentPage =1;
+const productsPerPage=21;
+/*In this code i render the products of each page*/ 
+function renderProducts(){
+  const start = (currentPage-1)*productsPerPage;
+  const end =start+productsPerPage;
 
+  const productsToShow = products.slice(start,end);
 
-let productsHTML = "";
+  let productsHTML = "";
 
-products.forEach((product)=>{
+  productsToShow.forEach((product)=>{
   productsHTML += `
   <div class="product-container">
           <div class="product-image-container">
@@ -24,7 +31,7 @@ products.forEach((product)=>{
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class= 'js-quantity-selector'>
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -51,12 +58,14 @@ products.forEach((product)=>{
 });
 
 document.querySelector('.products-grid').innerHTML= productsHTML;
+/*End of product rendering*/
 
+/*Here i start to make the add button to introduce the products to cart and show the total quantity*/
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
   button.addEventListener('click', () => {
     const productID = button.dataset.productId;
     let matchingItem;
-
+    const productQuantity = Number(button.closest('.product-container').querySelector('.js-quantity-selector').value);
     cart.forEach((item) => {
       if (productID === item.productId) {
         matchingItem = item;
@@ -64,11 +73,11 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     });
 
     if (matchingItem) {
-      matchingItem.quantity += 1;
+      matchingItem.quantity += productQuantity;
     } else {
       cart.push({
         productId: productID,
-        quantity: 1
+        quantity: productQuantity
       });
     }
 
@@ -91,3 +100,28 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     }, 2000);
   });
 });
+
+}
+
+
+function renderPagination(){
+  renderProducts();
+  const totalPages =Math.ceil(products.length/productsPerPage);
+  let paginationHtml ='';
+  for(let i=1;i<=totalPages;i++){
+    paginationHtml+=`<button class="pagination-button ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+  }
+  document.querySelector('.js-pagination').innerHTML= paginationHtml;
+  
+  const paginationButtons = document.querySelectorAll('.pagination-button');
+
+  paginationButtons.forEach((Pagebutton)=>{
+    Pagebutton.addEventListener('click',()=>{
+      currentPage=Number(Pagebutton.dataset.page);
+      renderPagination();
+      
+    })
+  });
+}
+
+renderPagination();
