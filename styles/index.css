@@ -5,7 +5,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-html,
+
 body {
   width: 100%;
   overflow-x: hidden;
@@ -92,7 +92,7 @@ body {
   min-height: 36px;
 }
 
-.js-quantity-selector {
+.js-quantity-selector , .products-number{
   height: 34px;
   min-width: 58px;
   padding: 0 8px;
@@ -222,4 +222,11 @@ body {
   .product-name {
     min-height: 0;
   }
+}
+
+.products-number-container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
 }

@@ -12,6 +12,19 @@
   --shadow: 0 16px 40px rgba(24, 32, 35, 0.12);
 }
 
+html {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+  color: #182023;
+  background: #eef8f4;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -24,7 +37,7 @@ a {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 100;
   min-height: 76px;
   display: flex;
   align-items: center;

@@ -17,7 +17,7 @@ document.querySelector('.site-header').innerHTML = `
     <a class="nav1" href="index.html">Αρχική</a>
     <a class="nav1" href="discounts.html">Προσφορές</a>
     <a class="nav1" href="#categories">Κατηγορίες</a>
-    <a href="#cart">Καλάθι <span id="cartBadge" class="js-cart-quantity">0</span></a>
+    <a href="cart.html">Καλάθι <span id="cartBadge" class="js-cart-quantity">0</span></a>
   </nav>
 `;
 
@@ -32,7 +32,7 @@ document.querySelector('.site-footer').innerHTML = `
     <a href="index.html">Αρχική</a>
     <a href="discounts.html">Προσφορές</a>
     <a href="#categories">Κατηγορίες</a>
-    <a href="#cart">Καλάθι</a>
+    <a href="cart.html">Καλάθι</a>
   </div>
 
   <div class="footer-section">

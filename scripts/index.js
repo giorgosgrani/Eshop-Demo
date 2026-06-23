@@ -1,7 +1,36 @@
 import { products, cart } from "../data/products.js";
+import { updateCartQuantity } from "../scripts/cart-utilities.js";
 
 let currentPage = 1;
-const productsPerPage = 21;
+let productsPerPage = 14;
+
+function productNumberSelector() {
+  const productNumberButton = document.querySelector('.products-number-container');
+
+  productNumberButton.innerHTML = `
+    <select class="products-number">
+      <option value="7">7</option>
+      <option selected value="14">14</option>
+      <option value="21">21</option>
+      <option value="42">42</option>
+    </select>
+  `;
+
+  const productsPerPageSelector = document.querySelector('.products-number');
+
+
+  productsPerPageSelector.addEventListener('change', () => {
+    productsPerPage = Number(productsPerPageSelector.value);
+    currentPage = 1;
+    renderPagination();
+  });
+}
+
+productNumberSelector();
+
+
+
+
 
 function renderProducts() {
   const start = (currentPage - 1) * productsPerPage;
@@ -11,6 +40,7 @@ function renderProducts() {
   let productsHTML = "";
 
   productsToShow.forEach((product) => {
+    
     productsHTML += `
       <div class="product-container">
         <div class="product-image-container">
@@ -57,7 +87,12 @@ function renderProducts() {
   });
 
   document.querySelector(".products-grid").innerHTML = productsHTML;
+  addToCart();
+}
 
+
+
+  function addToCart(){
   document.querySelectorAll(".js-add-to-cart").forEach((button) => {
     button.addEventListener("click", () => {
       const productId = button.dataset.productId;
@@ -72,19 +107,16 @@ function renderProducts() {
 
       if (matchingItem) {
         matchingItem.quantity += productQuantity;
+        //console.log(cart);
       } else {
         cart.push({
           productId,
           quantity: productQuantity
         });
+          //console.log(cart);
       }
-
-      let cartQuantity = 0;
-      cart.forEach((item) => {
-        cartQuantity += item.quantity;
-      });
-
-      document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartQuantity();
 
       const productContainer = button.closest(".product-container");
       const addedMessage = productContainer.querySelector(".added-to-cart");
@@ -97,8 +129,9 @@ function renderProducts() {
         addedMessage.classList.add("added-to-cart-inactive");
       }, 2000);
     });
-  });
-}
+    
+  });}
+
 
 function renderPagination() {
   renderProducts();
@@ -121,3 +154,4 @@ function renderPagination() {
 }
 
 renderPagination();
+updateCartQuantity();

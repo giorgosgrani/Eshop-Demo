@@ -55,4 +55,4 @@ export const products = [
   { id: '1000000000000050', name: 'Premium Leather Sneakers', image: '../images/premium-leather-sneakers.svg', priceCents: 13990, rating: { stars: 5.0, count: 26 } }
 ];
 
-export const cart =[];
+export const cart = JSON.parse(localStorage.getItem('cart')) || [];
