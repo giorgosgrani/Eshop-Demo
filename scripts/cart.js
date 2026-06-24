@@ -22,9 +22,7 @@ function renderCartProducts(){
           <img class="productCart-image" src="${selected.product.image}" alt="${selected.product.name}">
         </div>
         <div class="productCart-name">${selected.product.name}</div>
-        <div class="productCart-price">
-           € ${selected.product.priceCents / 100} 
-        </div> 
+        <div class="productCart-price">€ ${selected.product.priceCents / 100} </div> 
            <div class="quantity-stepper">
                 <button class="quantity-button js-decrease-quantity" data-product-id="${selected.product.id}">
                           -
@@ -37,7 +35,8 @@ function renderCartProducts(){
                 </button>
             </div> 
         <div class="total-product-price">${((selected.product.priceCents / 100)*selected.quantity).toFixed(2)}
-        </div>    
+        </div>
+          
       </div>
       
       `
@@ -71,7 +70,17 @@ function CalTotal(){
   <div class="summary-row">
     <span>Τελική αξία</span>
     <span class="js-order-total">€${TotalCost}</span>
-  </div>`
+  </div>
+  <div class="reset-cart-js reset-cart"></div>  `
+  const resetCart = document.querySelector('.reset-cart-js');
+  resetCart.innerHTML =`<button class="reset-button-js reset-button">Εκκαθάριση καλαθιού</button>`;
+
+  const resetButton= document.querySelector('.reset-button-js');
+  resetButton.addEventListener('click',()=>{
+    cartReset(cart);
+    renderCartProducts();
+    updateCartQuantity();
+  });
 }
 
 function quantityButtons(){
@@ -116,6 +125,15 @@ function quantityButtons(){
   });
   
 }
+
+function cartReset(cartNow){
+  cartNow.length = 0;
+  localStorage.removeItem('cart');
+}
+
+
+
 renderCartProducts();
 updateCartQuantity();
+
 

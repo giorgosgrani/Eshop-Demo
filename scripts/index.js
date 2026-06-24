@@ -26,10 +26,6 @@ function productNumberSelector() {
   });
 }
 
-productNumberSelector();
-
-
-
 
 
 function renderProducts() {
@@ -85,18 +81,19 @@ function renderProducts() {
       </div>
     `;
   });
-
+  
   document.querySelector(".products-grid").innerHTML = productsHTML;
   addToCart();
 }
 
 
 
-  function addToCart(){
+function addToCart(){
   document.querySelectorAll(".js-add-to-cart").forEach((button) => {
     button.addEventListener("click", () => {
       const productId = button.dataset.productId;
       const productQuantity = Number(button.closest(".product-container").querySelector(".js-quantity-selector").value);
+      
       let matchingItem;
 
       cart.forEach((item) => {
@@ -111,7 +108,8 @@ function renderProducts() {
       } else {
         cart.push({
           productId,
-          quantity: productQuantity
+          quantity: productQuantity,
+          priceCents:products.priceCents
         });
           //console.log(cart);
       }
@@ -149,9 +147,55 @@ function renderPagination() {
     pageButton.addEventListener("click", () => {
       currentPage = Number(pageButton.dataset.page);
       renderPagination();
+      
     });
   });
 }
 
+function filterProducts(){
+  let filterHTML="";
+  filterHTML= `
+  <select class="selector-filter selector-filter-js">
+    <option selected value = "0">Προτεινόμενα</option>
+    <option value = "1">Αύξουσα τιμή</option>
+    <option value = "2">Φθίνουσα τιμή</option>
+  </select>`;
+
+  const filterSelector = document.querySelector('.filter-container-js');
+  filterSelector.innerHTML=filterHTML;
+  const filter = filterSelector.querySelector('.selector-filter-js');
+  if(Number(filter.value)===0){
+        products.sort((a, b) => {
+          if (b.rating.stars !== a.rating.stars) {
+            return b.rating.stars - a.rating.stars;
+          }
+          return b.rating.count - a.rating.count;});
+          renderPagination();
+      }   
+
+    filter.addEventListener('change',()=>{
+      let value = Number(filter.value);  
+      if(value===0){
+        products.sort((a, b) => {
+          if (b.rating.stars !== a.rating.stars) {
+            return b.rating.stars - a.rating.stars;
+          }
+          return b.rating.count - a.rating.count;});
+      }    
+      else if(value===1){
+        products.sort((a,b)=>a.priceCents-b.priceCents);
+      }
+      else if(value===2){
+        products.sort((a,b)=>b.priceCents-a.priceCents);
+      }
+     currentPage =1;
+     renderPagination();
+    
+    });
+}
+productNumberSelector();
+filterProducts();
 renderPagination();
 updateCartQuantity();
+
+

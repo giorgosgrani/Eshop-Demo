@@ -230,3 +230,18 @@ body {
   align-items: center;
   margin-top: 5px;
 }
+
+.filter-container{
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-top: 10px;
+  margin-right: 50px;
+}
+.selector-filter{
+  display: flex;
+  justify-content: center;
+  border-radius: 500px;
+  width: auto;
+  height: 27px;
+}
