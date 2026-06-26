@@ -1,3 +1,17 @@
+:root {
+  --ink: #182023;
+  --muted: #667579;
+  --line: #dde7e4;
+  --paper: #eef8f4;
+  --surface: #ffffff;
+  --surface-soft: #f7fbfa;
+  --coal: #111827;
+  --accent: #f5b301;
+  --accent-dark: #d99500;
+  --green: #0f8f68;
+  --shadow: 0 16px 40px rgba(24, 32, 35, 0.12);
+}
+
 body {
   margin: 0;
   color: #182023;
@@ -119,4 +133,24 @@ body {
 }
 .reset-button{
   border-radius: 90px;
+}
+
+.Empty-message{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--paper);
+  font-weight: 1000;
+  gap:5px;
+  margin-top: 100px;
+}
+
+.index-button{
+  border-radius: 600px;
+  border: 1px solid black;
+}
+
+.index-button:hover{
+  background: var(--muted);
 }

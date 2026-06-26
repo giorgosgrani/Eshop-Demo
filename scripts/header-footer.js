@@ -3,7 +3,18 @@ document.querySelector('.site-header').innerHTML = `
     <a class="brand" href="index.html" aria-label="First eshop αρχική">
       <img class="logo" src="../images/first-eshop-logo.svg" alt="First eshop">
     </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Άνοιγμα μενού" aria-expanded="false">☰</button>
+
+    <div class="categories-menu">
+      <button class="menu-toggle js-categories-button" id="menuToggle" aria-label="Άνοιγμα μενού" aria-expanded="false">☰</button>
+
+      <div class="categories-dropdown js-categories-dropdown">
+        <button data-category="all">Όλα</button>
+        <button data-category="sneakers">Sneakers</button>
+        <button data-category="boots">Μπότες</button>
+        <button data-category="sandals">Σανδάλια</button>
+        <button data-category="running">Running</button>
+      </div>
+    </div>
   </div>
 
   <div class="search-box">
@@ -15,11 +26,51 @@ document.querySelector('.site-header').innerHTML = `
 
   <nav class="main-nav" id="mainNav" aria-label="Κύριο μενού">
     <a class="nav1" href="index.html">Αρχική</a>
-    <a class="nav1" href="discounts.html">Προσφορές</a>
-    <a class="nav1" href="#categories">Κατηγορίες</a>
+    <a class="nav1" ">Προσφορές</a>
+
+    <div class="nav-category-dropdown nav1">
+      <a href="#categories" class="js-nav-category-toggle">Κατηγορίες</a>
+
+      <div class="nav-category-menu js-nav-category-menu">
+        <button data-category="all">Όλα</button>
+        <button data-category="sneakers">Sneakers</button>
+        <button data-category="boots">Μπότες</button>
+        <button data-category="sandals">Σανδάλια</button>
+        <button data-category="running">Running</button>
+      </div>
+    </div>
+
     <a href="cart.html">Καλάθι <span id="cartBadge" class="js-cart-quantity">0</span></a>
   </nav>
 `;
+
+const categoriesButton = document.querySelector('.js-categories-button');
+const categoriesDropdown = document.querySelector('.js-categories-dropdown');
+
+const navCategoryToggle = document.querySelector('.js-nav-category-toggle');
+const navCategoryMenu = document.querySelector('.js-nav-category-menu');
+
+categoriesButton.addEventListener('click', () => {
+  categoriesDropdown.classList.toggle('active');
+});
+
+navCategoryToggle.addEventListener('click', (event) => {
+  event.preventDefault();
+  navCategoryMenu.classList.toggle('active');
+});
+
+document.addEventListener('click', (event) => {
+  const clickedInsideMenu =
+    event.target.closest('.categories-menu') ||
+    event.target.closest('.nav-category-dropdown');
+
+  if (!clickedInsideMenu) {
+    categoriesDropdown.classList.remove('active');
+    navCategoryMenu.classList.remove('active');
+  }
+});
+
+
 
 document.querySelector('.site-footer').innerHTML = `
   <div class="footer-section">
@@ -30,7 +81,7 @@ document.querySelector('.site-footer').innerHTML = `
   <div class="footer-section">
     <h4>Μενού</h4>
     <a href="index.html">Αρχική</a>
-    <a href="discounts.html">Προσφορές</a>
+    <a>Προσφορές</a>
     <a href="#categories">Κατηγορίες</a>
     <a href="cart.html">Καλάθι</a>
   </div>

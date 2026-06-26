@@ -2,6 +2,20 @@ import { cart , products } from "../data/products.js";
 import { updateCartQuantity } from "../scripts/cart-utilities.js";
 
 let selectedProducts=[];
+
+function EmptyCart(){
+  let cartHTML = "";
+  if(cart.length===0){
+    const message= document.querySelector('.cart-grid');
+    message.innerHTML=`
+    <div class="Empty-message"><span>Το καλάθι σας είναι προς το παρόν άδειο.</span>
+    <button class="index-button">
+    <a href="index.html">Επιστροφή στην αρχική σελίδα</a></button>
+    </div>
+    `;
+  }
+}
+
 function renderCartProducts(){
   selectedProducts = [];
   let cartHTML = "";
@@ -44,6 +58,7 @@ function renderCartProducts(){
   document.querySelector('.cart-grid').innerHTML=cartHTML;
   CalTotal();
   quantityButtons();
+  EmptyCart();
 }
 
 function CalTotal(){
