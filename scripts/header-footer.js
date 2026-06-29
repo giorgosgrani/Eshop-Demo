@@ -70,6 +70,18 @@ document.addEventListener('click', (event) => {
   }
 });
 
+document.querySelectorAll('[data-category]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const category = button.dataset.category;
+    const isIndexPage = window.location.pathname.endsWith('/index.html') ||
+                        window.location.pathname.endsWith('/');
+
+    if (!isIndexPage) {
+      window.location.href = `index.html?category=${category}`;
+    }
+  });
+});
+
 
 
 document.querySelector('.site-footer').innerHTML = `

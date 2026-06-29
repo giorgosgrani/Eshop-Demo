@@ -5,6 +5,14 @@ import { updateCartQuantity } from "../scripts/cart-utilities.js";
 let currentPage = 1;
 let productsPerPage = 14;
 let displayedProducts =[...products];
+const params = new URLSearchParams(window.location.search);
+const startingCategory = params.get('category');
+
+if (startingCategory && startingCategory !== 'all') {
+  displayedProducts = products.filter((product) => {
+    return product.details.type === startingCategory;
+  });
+}
 
 function productNumberSelector() {
   const productNumberButton = document.querySelector('.products-number-container');
@@ -203,6 +211,8 @@ function selectCat() {
   categoryButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const category = button.dataset.category;
+
+
 
       if (category === 'all') {
         displayedProducts = [...products];
