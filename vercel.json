@@ -3,6 +3,18 @@
     {
       "source": "/",
       "destination": "/html/index.html"
+    },
+    {
+      "source": "/cart.html",
+      "destination": "/html/cart.html"
+    },
+    {
+      "source": "/discounts.html",
+      "destination": "/html/discounts.html"
+    },
+    {
+      "source": "/index.html",
+      "destination": "/html/index.html"
     }
   ]
 }
